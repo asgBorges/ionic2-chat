@@ -1,0 +1,31 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Registro</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+  <form [formGroup]="f" (ngSubmit)="registra(f)">
+    <ion-list>
+      <ion-item>
+        <ion-label fixed>Nome</ion-label>
+        <ion-input type="text" [formControl]="nome"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label fixed>Email</ion-label>
+        <ion-input type="email" [formControl]="email"></ion-input>
+      </ion-item>
+      <ion-item>        
+        <ion-label fixed>Senha</ion-label>
+        <ion-input type="password" [formControl]="senha"></ion-input>        
+      </ion-item>
+      <ion-item [class.invalid]="!confirmaSenha.valid && confirmaSenha.touched">
+        <ion-label fixed>Confirmação</ion-label>
+        <ion-input type="password" [formControl]="confirmaSenha"></ion-input>
+      </ion-item>
+    </ion-list>
+    <button ion-button block type="submit" [disabled]="!f.valid">Enviar</button>
+  </form>
+</ion-content>

@@ -1,0 +1,29 @@
+<ion-menu [content]="nav">
+    <ion-header>
+        <ion-toolbar>
+            <ion-title>Chat</ion-title>
+        </ion-toolbar>
+    </ion-header>
+    <ion-content>
+        <ion-list>
+            <button ion-item ion-left (click)="carrega(rootPage)" *ngIf="isAuthenticated" >
+                <ion-icon name="book"></ion-icon>
+                Chat
+            </button>
+            <button ion-item ion-left (click)="carrega(signinPage)" *ngIf="!isAuthenticated">
+                <ion-icon name="log-in"></ion-icon>
+                Login
+            </button>
+            <button ion-item ion-left (click)="carrega(registroPage)" *ngIf="!isAuthenticated">
+                <ion-icon name="person"></ion-icon>
+                Registrar-se
+            </button>
+            <button ion-item ion-left (click)="logout()" *ngIf="isAuthenticated">
+                <ion-icon name="log-out"></ion-icon>
+                Sair
+            </button>
+        </ion-list>
+    </ion-content>
+</ion-menu>
+
+<ion-nav [root]="rootPage" #nav></ion-nav>

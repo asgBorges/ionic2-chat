@@ -1,0 +1,48 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-buttons start>
+        <button ion-button icon-only menuToggle>
+          <ion-icon name="menu"></ion-icon>
+        </button>
+    </ion-buttons> 
+    <ion-title>Chat</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding class="chat-background-page">
+  <ion-list>
+
+      <ion-card *ngFor="let item of lista " class="card-chat-page">
+
+        <ion-card-content style="margin-bottom: 0px;padding: 0px">
+        <ion-row>
+          <ion-col>
+            <b>{{item.usuario.nome}}</b>
+          </ion-col>
+          <ion-col right text-right>
+            <ion-note>
+              {{item.data | date:'HH:mm'}}
+            </ion-note>
+          </ion-col>
+        </ion-row>
+        <!--<hr/>-->
+        <ion-row>
+          <ion-col>{{item.texto}}</ion-col>
+        </ion-row>
+        </ion-card-content>
+
+      </ion-card>
+
+  </ion-list>
+</ion-content>
+
+<ion-footer>
+  <ion-item>
+    <ion-input type="text" placeholder="Mensagem" [(ngModel)]="mensagem"></ion-input>
+    <button ion-fab mini item-right color="light" (click)="enviarMsg()" *ngIf="mensagem">
+      <ion-icon name="arrow-forward"></ion-icon>
+    </button>
+  </ion-item>  
+</ion-footer>
